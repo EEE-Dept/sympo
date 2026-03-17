@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details - POWER GALE '26</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="image/psna_logo.png">
+    <style>
+        .detail-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+            position: relative;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-pure);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 35px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-btn:hover {
+            color: var(--primary);
+            background: rgba(56, 189, 248, 0.1);
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateX(-8px);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.2);
+        }
+
+        .event-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .poster-section {
+            position: sticky;
+            top: 100px;
+            perspective: 1000px;
+        }
+
+        .poster-container {
+            background: rgba(15, 22, 41, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-lg);
+            padding: 18px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.1);
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: posterFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes posterFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotateX(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotateX(2deg);
+            }
+        }
+
+        .poster-container:hover {
+            transform: translateY(-20px) scale(1.02);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8), 0 0 50px rgba(56, 189, 248, 0.3);
+            animation-play-state: paused;
+        }
+
+        .poster-img {
+            width: 100%;
+            aspect-ratio: 1 / 1.414;
+            /* A4 Ratio */
+            background: #050811;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .poster-placeholder {
+            color: var(--text-muted);
+            font-size: 1rem;
+            text-align: center;
+            padding: 30px;
+            border: 2px dashed rgba(255, 255, 255, 0.15);
+            width: 85%;
+            height: 85%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .event-box {
+            background: linear-gradient(135deg, rgba(15, 22, 41, 0.7), rgba(8, 14, 25, 0.8));
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            padding: 55px;
+            position: relative;
+            z-index: 10;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 30px 70px rgba(0, 0, 0, 0.5);
+        }
+
+        .event-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.1), transparent 70%);
+            border-radius: 0 0 0 100%;
+            pointer-events: none;
+        }
+
+        .icon-lg {
+            font-size: 3.2rem;
+            width: 85px;
+            height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 22, 41, 0.9));
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            position: relative;
+            animation: iconPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 0 rgba(56, 189, 248, 0);
+            }
+
+            50% {
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.3);
+            }
+        }
+
+        .title-lg {
+            font-size: 3.5rem;
+            color: var(--text-pure);
+            margin-bottom: 25px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+        }
+
+        .desc-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 45px;
+            font-weight: 400;
+            text-align: justify;
+        }
+
+        .desc-text em,
+        .desc-text i {
+            color: var(--primary);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .rules-ul li .sub-rule {
+            display: block;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 45px;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(56, 189, 248, 0.2);
+            transform: translateX(5px);
+        }
+
+        .info-item-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .info-item h5 {
+            color: var(--primary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .info-item p {
+            font-size: 1.2rem;
+            color: var(--text-pure);
+            font-weight: 600;
+        }
+
+        .info-icon {
+            font-size: 1.8rem;
+            opacity: 0.8;
+        }
+
+        .rules-title {
+            font-size: 1.6rem;
+            color: var(--text-pure);
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary);
+            padding-left: 20px;
+            font-weight: 700;
+        }
+
+        .rules-ul {
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.8;
+            margin-bottom: 50px;
+            padding-left: 25px;
+            list-style-type: none;
+        }
+
+        .rules-ul li {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .rules-ul li::before {
+            content: '⚡';
+            position: absolute;
+            left: -30px;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .btn-large {
+            width: 100%;
+            padding: 22px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+            border-radius: var(--radius-md);
+            transition: all 0.4s ease;
+        }
+
+        .btn-large:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.5);
+        }
+
+        @media screen and (max-width: 992px) {
+            .event-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .poster-section {
+                position: relative;
+                top: 0;
+                max-width: 550px;
+                margin: 0 auto;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .title-lg {
+                font-size: 2.8rem;
+            }
+
+            .event-box {
+                padding: 40px 30px;
+            }
+
+            .detail-page {
+                padding: 100px 15px 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Cinematic Video Background -->
+    <div class="video-background">
+        <div class="video-overlay"></div>
+        <video autoplay loop muted playsinline id="bg-video">
+            <source
+                src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-connection-background-20894-large.mp4"
+                type="video/mp4">
+        </video>
+    </div>
+
+    <div class="bg-glow bg-glow-left"></div>
+    <div class="bg-glow bg-glow-right"></div>
+
+    <div class="detail-page reveal">
+        <a href="index.html" class="back-btn">
+            <span>←</span> Back to Symposium
+        </a>
+
+        <div class="event-layout">
+            <!-- Poster Section -->
+            <div class="poster-section">
+                <div class="poster-container">
+                    <div class="poster-img" id="posterWrapper">
+                        <!-- Poster will be loaded here -->
+                        <div class="poster-placeholder" id="posterPlaceholder">
+                            A4 Poster Design<br>Coming Soon
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Details Section -->
+            <div class="details-section">
+                <div class="event-box">
+                    <div class="icon-lg" id="eventIcon">📄</div>
+                    <h1 class="title-lg" id="eventTitle">Event Title</h1>
+
+                    <p class="desc-text" id="eventDesc">
+                        Detailed event description loads here. Provide participants with a complete overview of what the
+                        event
+                        entails and expected outcomes.
+                    </p>
+
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-icon">📅</span>
+                            <div class="info-item-content">
+                                <h5>Date</h5>
+                                <p id="eventTime">April 10th</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📍</span>
+                            <div class="info-item-content">
+                                <h5>Venue</h5>
+                                <p id="eventVenue">PSNACET EEE Department</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">👥</span>
+                            <div class="info-item-content">
+                                <h5>Participation</h5>
+                                <p id="eventTeam">1-3 Members</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">🎫</span>
+                            <div class="info-item-content">
+                                <h5>Registration Fee</h5>
+                                <p id="eventFee">₹250+GST per head</p>
+                                <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 2px;">(Including
+                                    Lunch and Refreshment)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="rules-title">Core Guidelines</h3>
+                    <ul class="rules-ul" id="eventRules">
+                        <li>Load rules dynamically via JavaScript...</li>
+                    </ul>
+
+                    <h3 class="rules-title" id="coordTitle" style="margin-top: 40px; border-left-color: #38bdf8;">Event
+                        Coordinators</h3>
+                    <div class="info-grid coordinator-list" id="eventCoordinators" style="margin-bottom: 50px;">
+                        <!-- Coordinators load dynamically -->
+                    </div>
+
+                    <a href="https://docs.google.com/forms/d/1zFdjB9CGKin-gEDnjhkAXwW_4yagc1EGr1yDt80JGRA/viewform?edit_requested=true"
+                        target="_blank" class="btn btn-primary btn-large">
+                        Register for this Event <span>🚀</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventId = urlParams.get('event');
+
+        const eventsData = {
+            'paper-x': { title: 'Paper X', icon: '📄', time: 'April 10th', team: '1-3 Members', desc: 'This competition requires teams of up to three participants. Teams must prepare a PowerPoint presentation, saved on a pendrive in both *.docx* and *.ppt* formats. The abstract and presentation must be emailed in advance. Each team has a strict time limit of *10 minutes* for their presentation.', rules: ['Each team should consist of a maximum of three participants.', 'Kindly bring your PowerPoint presentation on a pendrive, with soft copies in .docx and .ppt formats.', 'Each team has a maximum of 10 minutes for their presentation.'], poster: 'image/paperx_poster.png', coordinators: [{ name: 'GIRIDHARAN B', phone: '+91 9342514563' }] },
+            'mind-clash': { title: 'Mind Clash', icon: '🗣️', time: 'April 10th', team: 'Individual', desc: 'A Debate Challenge is a structured argument-based competition where participants discuss a topic from opposing viewpoints. The goal is to persuade judges or an audience through logic, evidence, and effective communication.', rules: ['Participants discuss a topic from their viewpoints.', 'Player discuss for (Affirmative/Pro) or Against (Negative/Con) a given topic.', 'Awards : Clarity of words, Structure, Presentation Style and logical thinking'], poster: 'image/mind_clash_poster.png', coordinators: [{ name: 'ARUN V G', phone: '+91 7871718973' }] },
+            // 'graphi-xplosion': ...
+            'bot-clash': { title: 'Bot Clash', icon: '🤖', time: 'April 10th', team: 'Max 3 Members', desc: `This competition requires participants to build custom cars (max 20x20 cm, 4 wheels) using microcontrollers like NodeMCU, ESP32, or Arduino. Cars must be battery-powered and controlled only via Bluetooth/WiFi mobile apps—no pre-built models, wired connections, or RF remotes allowed. The race is a single round on a track with obstacles, turns, and barriers. Going off-track, losing control for 30+ seconds, or using prohibited controls leads to penalties or disqualification. Judges' decisions are final.`, rules: [' Maximum 3 members per team', ' Eligibility : only custom-built cars using nodemcu, esp32, arduino, or similar. No pre-built models.', ' Size & power : max 20x20 cm, four wheels, battery-powered only.', ' Race format : single round; fastest time wins. Track has obstacles and turns.', ' Control : only bluetooth or wi-fi mobile app control allowed.', ' Track rules : going off-track or losing control for 30 seconds may lead to penalties or disqualification. Manual intervention leads to disqualification.', ' Judges decision is final.'], poster: 'image/bot_clash_poster.png', coordinators: [{ name: 'SHARAN M', phone: '+91 7598424088' }] },
+            'byte-battle': { title: 'Byte Battle', icon: '🧑‍💻', time: 'April 10th', team: 'Individual', desc: 'Participants identify and resolve “bugs” (errors) in logical puzzles, riddles, or pseudocode. The focus is on problem-solving and logical thinking rather than technical coding.', rules: ['Each team/participant will be given a set of challenges with intentional “bugs.” Points will be awarded based on the number of correct solutions.', 'Basic logical puzzles with small bugs.', 'Example: “If a = 5 and B = 10, then A + B = 14. Identify the bug."', '“Identify errors in a pseudocode.”'], poster: 'image/byte_battle_poster.png', coordinators: [{ name: ' MANIMARAN G', phone: '+91 9790683861' }] },
+            'dice-rise': { title: 'Dice & Rise', icon: '🎲', time: 'April 10th', team: '1-2 Members', desc: 'This is a team-based technical quiz competition where each team can have 1 or 2 participants. Teams advance on the game board by rolling a dice for each correct answer. Instead of traditional snake and ladder mechanics, mystery boxes add an element of surprise. The first three teams to reach the final position will be rewarded.', rules: ['A team-based technical quiz (1-2 participants per team).', 'Correct answers let teams roll a dice to advance.', 'Mystery boxes replace traditional snake & ladder mechanics.', 'Top 3 teams to finish win rewards.'], poster: 'image/dice_rise_poster.png', coordinators: [{ name: 'LOGESH B', phone: '+91 9585488892' }] },
+        };
+
+        if (eventId && eventsData[eventId]) {
+            const data = eventsData[eventId];
+            document.getElementById('eventTitle').innerText = data.title;
+            document.getElementById('eventIcon').innerText = data.icon;
+            document.getElementById('eventDesc').innerText = data.desc;
+
+            if (data.time) document.getElementById('eventTime').innerText = data.time;
+            if (data.team) document.getElementById('eventTeam').innerText = data.team;
+
+            const rulesEl = document.getElementById('eventRules');
+            rulesEl.innerHTML = '';
+            data.rules.forEach(r => {
+                const li = document.createElement('li');
+                // Replace *text* with <em>text</em> for better alignment/styling
+                let formattedRule = r.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+                // If the rule looks like an example or sub-info, style it differently
+                if (r.startsWith('Example:') || r.startsWith('Awards :') || r.startsWith('Eligibility :')) {
+                    li.innerHTML = `<span class="sub-rule">${formattedRule}</span>`;
+                } else {
+                    li.innerHTML = formattedRule;
+                }
+                rulesEl.appendChild(li);
+            });
+
+            // Update description with same formatting
+            document.getElementById('eventDesc').innerHTML = data.desc.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+            // Handle Poster if available
+            if (data.poster) {
+                const posterWrapper = document.getElementById('posterWrapper');
+                posterWrapper.innerHTML = `<img src="${data.poster}" alt="${data.title} Poster" style="width:100%; height:100%; object-fit:cover;">`;
+            }
+
+            // Handle Coordinators
+            const coordsEl = document.getElementById('eventCoordinators');
+            const coordTitle = document.getElementById('coordTitle');
+            if (data.coordinators && data.coordinators.length > 0) {
+                coordsEl.innerHTML = '';
+                data.coordinators.forEach(coord => {
+                    coordsEl.innerHTML += `
+                        <div class="info-item">
+                            <span class="info-icon">📞</span>
+                            <div class="info-item-content">
+                                <h5>${coord.name}</h5>
+                                <p style="font-size: 1rem;"><a href="tel:${coord.phone.replace(/\s+/g, '')}" style="color: inherit; text-decoration: none;">${coord.phone}</a></p>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                coordsEl.style.display = 'none';
+                coordTitle.style.display = 'none';
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

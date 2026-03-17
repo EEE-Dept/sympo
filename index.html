@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POWER GALE '26 - PSNACET Symposium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="image/psna_logo.png">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Cinematic Video Background -->
+    <div class="video-background">
+        <div class="video-overlay"></div>
+        <video autoplay loop muted playsinline id="bg-video">
+            <source
+                src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-network-connection-background-20894-large.mp4"
+                type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Subtle Background Glow -->
+    <div class="bg-glow bg-glow-left"></div>
+    <div class="bg-glow bg-glow-right"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar fade-in">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="image/psna_logo.png" alt="PSNACET Logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#rules">Rules</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content reveal">
+                <h2 class="clg">PSNA College of Engineering and Technology</h2>
+                <h2 class="dept">Department of Electrical & Electronics Engineering</h2>
+                <img src="image/powergale_title.png" alt="POWER GALE 2K26" class="hero-title-img">
+                <p class="subtitle">A premier National level Technical Symposium to innovate, design, and conquer the
+                    future of electronics.</p>
+                <div class="hero-actions">
+                    <a href="#events" class="btn btn-primary">Explore Events</a>
+                    <a href="brouchure/power gale brouchure.pdf" target="_blank" class="btn btn-outline">View
+                        Brochure</a>
+                </div>
+            </div>
+
+            <div class="hero-visual reveal delay-1">
+                <div class="glass-card tilt-3d">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <h3>April 10th, 2026</h3>
+                        <p>Join us for a day of technical brilliance</p>
+                        <div class="event-stats">
+                            <div class="stat-item">
+                                <span class="stat-num">5</span>
+                                <span class="stat-label">Events</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-num">1</span>
+                                <span class="stat-label">Day</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container cols-2">
+            <div class="about-visual tilt-3d reveal">
+                <img src="image/powergale.png" alt="POWER GALE '26" class="about-image">
+            </div>
+            <div class="about-content reveal delay-1">
+                <div class="section-badge">Overview</div>
+                <h2 class="section-title">About the Symposium</h2>
+                <p class="section-desc">POWER GALE '26 is a prestigious National level Technical Symposium organized by
+                    the
+                    Department of Electrical and Electronics Engineering, PSNA College of Engineering and Technology,
+                    Dindigul.</p>
+                <p class="section-desc">This event features a wide range of technical competitions, offering
+                    participants a unique platform to demonstrate their skills, creativity, and innovative capabilities.
+                    Step into the arena where brilliant minds converge to showcase their electrifying potential.</p>
+
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="feature-icon">🏅</span>
+                        <span>Exciting Cash Prizes</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📜</span>
+                        <span>Participation Certificates</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🍽️</span>
+                        <span>Lunch & Refreshments Included</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section id="timer" style="padding-bottom: 60px; padding-top: 20px;">
+        <div class="container">
+            <div class="countdown-container reveal text-center">
+                <h3 class="countdown-label" style="text-align: center;">Time Remaining Until The Event</h3>
+                <div id="countdown" class="countdown-timer">
+                    <div class="time-box">
+                        <span id="days" class="time-value">00</span>
+                        <span class="time-text">Days</span>
+                    </div>
+                    <div class="time-colon">:</div>
+                    <div class="time-box">
+                        <span id="hours" class="time-value">00</span>
+                        <span class="time-text">Hours</span>
+                    </div>
+                    <div class="time-colon">:</div>
+                    <div class="time-box">
+                        <span id="minutes" class="time-value">00</span>
+                        <span class="time-text">Minutes</span>
+                    </div>
+                    <div class="time-colon">:</div>
+                    <div class="time-box">
+                        <span id="seconds" class="time-value">00</span>
+                        <span class="time-text">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="section bg-darker">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <div class="section-badge section-badge-center">Competitions</div>
+                <h2 class="section-title">Our Events</h2>
+                <p class="section-subtitle" style="margin-bottom: 40px;">Discover a variety of technical and
+                    non-technical events designed to test your mettle.</p>
+
+            </div>
+
+            <div class="events-grid">
+                <!-- Event Cards -->
+                <a href="event-details.html?event=paper-x" class="event-card tilt-3d reveal">
+                    <div class="event-image">
+                        <img src="image/pp_card.png" alt="Paper Presentation">
+                    </div>
+                    <div class="event-header">
+                        <div class="event-icon">📄</div>
+                        <div class="event-arrow">↗</div>
+                    </div>
+                    <h3>Paper X</h3>
+                    <p>Showcase your research and technical prowess in emerging EEE trends.</p>
+                </a>
+
+                <a href="event-details.html?event=mind-clash" class="event-card tilt-3d reveal delay-1">
+                    <div class="event-image">
+                        <img src="image/debate_card.png" alt="Clash Forum">
+                    </div>
+                    <div class="event-header">
+                        <div class="event-icon">🗣️</div>
+                        <div class="event-arrow">↗</div>
+                    </div>
+                    <h3>Mind Clash</h3>
+                    <p>Engage in an ultimate battle of words and ideas. Defend your stances.</p>
+                </a>
+
+
+
+                <a href="event-details.html?event=bot-clash" class="event-card tilt-3d reveal">
+                    <div class="event-image">
+                        <img src="image/robo_race_card.jpg" alt="Bot Clash">
+                    </div>
+                    <div class="event-header">
+                        <div class="event-icon">🤖</div>
+                        <div class="event-arrow">↗</div>
+                    </div>
+                    <h3>Bot Clash</h3>
+                    <p>The ultimate battlefield for custom-built robots. Last bot standing wins.</p>
+                </a>
+
+                <a href="event-details.html?event=byte-battle" class="event-card tilt-3d reveal delay-1">
+                    <div class="event-image">
+                        <img src="image/code_debugging_card.png" alt="Byte Battle">
+                    </div>
+                    <div class="event-header">
+                        <div class="event-icon">🧑‍💻</div>
+                        <div class="event-arrow">↗</div>
+                    </div>
+                    <h3>Byte Battle</h3>
+                    <p>Find and fix challenging circuit bugs under intense time pressure.</p>
+                </a>
+
+                <a href="event-details.html?event=dice-rise" class="event-card tilt-3d reveal delay-2">
+                    <div class="event-image">
+                        <img src="image/dice_rise_card.jpg" alt="Dice & Rise">
+                    </div>
+                    <div class="event-header">
+                        <div class="event-icon">🎲</div>
+                        <div class="event-arrow">↗</div>
+                    </div>
+                    <h3>Dice & Rise</h3>
+                    <p>Test your strategy and rise above the rest in a fun interactive challenge.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section bg-darker">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <div class="section-badge section-badge-center">Memories</div>
+                <h2 class="section-title">Our Gallery</h2>
+                <p class="section-subtitle">A glimpse into the electrifying moments of our past and future symposiums.
+                </p>
+            </div>
+
+            <div class="gallery-controls reveal">
+                <div class="button-box">
+                    <button class="gallery-btn active" data-year="2024">
+                        <span class="btn-glow"></span>
+                        <div class="btn-content">
+                            <span class="btn-year">2024</span>
+                        </div>
+                    </button>
+                    <button class="gallery-btn" data-year="2025">
+                        <span class="btn-glow"></span>
+                        <div class="btn-content">
+                            <span class="btn-year">2025</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="gallery-container reveal delay-1">
+                <div class="gallery-wrapper">
+                    <div id="gallery-2024" class="gallery-track active">
+                        <!-- 2024 Photos (10 images) -->
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/0.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/1.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/2.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/3.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/4.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/5.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/6.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/7.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/8.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/9.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/10.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/11.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <!-- <div class="gallery-item tilt-3d">
+                            <img src="2024/12.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div> -->
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/13.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/14.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/15.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/16.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2024/17.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                    </div>
+
+                    <div id="gallery-2025" class="gallery-track">
+                        <div class="gallery-item tilt-3d">
+                            <img src="2025/00.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2025/111.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2025/222.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2025/333.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2025/444.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2025/555.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2025/666.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2025/777.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2025/888.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                        <div class="gallery-item tilt-3d">
+                            <img src="2025/999.jpeg" alt="" class="gallery-img">
+                            <div class="img-overlay"><span>View Image</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Navigation -->
+                <div class="gallery-nav">
+                    <button id="gallery-prev" class="slider-btn">←</button>
+                    <div class="scroll-progress">
+                        <div id="scroll-bar" class="scroll-bar"></div>
+                    </div>
+                    <button id="gallery-next" class="slider-btn">→</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+            <div id="lightbox-caption"></div>
+        </div>
+
+        <!-- Background Particles Canvas -->
+        <canvas id="gallery-particles"></canvas>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-badge">Guidelines</div>
+                <h2 class="section-title">Rules & Regulations</h2>
+            </div>
+
+            <div class="rules-grid">
+                <div class="rule-card reveal">
+                    <div class="rule-icon">🪪</div>
+                    <div class="rule-text">
+                        <h4>College ID Required</h4>
+                        <p>Participants must carry their college ID card for verification.</p>
+                    </div>
+                </div>
+                <div class="rule-card reveal delay-1">
+                    <div class="rule-icon">⏱️</div>
+                    <div class="rule-text">
+                        <h4>Punctuality</h4>
+                        <p>Events start at the scheduled time. Report by 8:30 AM.</p>
+                    </div>
+                </div>
+                <div class="rule-card reveal delay-2">
+                    <div class="rule-icon">👔</div>
+                    <div class="rule-text">
+                        <h4>Dress Code</h4>
+                        <p>Formal wear is mandatory for all symposium participants.</p>
+                    </div>
+                </div>
+                <div class="rule-card reveal">
+                    <div class="rule-icon">⚖️</div>
+                    <div class="rule-text">
+                        <h4>Judges Decision</h4>
+                        <p>The decision of the judges will be final and binding.</p>
+                    </div>
+                </div>
+                <div class="rule-card reveal delay-1">
+                    <div class="rule-icon">🎓</div>
+                    <div class="rule-text">
+                        <h4>Discipline</h4>
+                        <p>Maintain strict discipline and decorum inside the campus.</p>
+                    </div>
+                </div>
+                <div class="rule-card reveal delay-2">
+                    <div class="rule-icon">📵</div>
+                    <div class="rule-text">
+                        <h4>Mobile Phones</h4>
+                        <p>Mobiles must be kept silent during core technical events.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container footer-grid-new">
+            <!-- Previous Footer Elements -->
+            <div class="footer-brand footer-brand-new">
+                <div class="logo">
+                    <img src="image/psna_logo.png" alt="PSNACET Logo" class="logo-img footer-logo-img">
+                </div>
+                <p style="margin-top: 15px; font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.6;">The
+                    premier technical symposium organized by the Department of Electrical and Electronics Engineering,
+                    PSNACET.</p>
+            </div>
+
+            <!-- Current Footer Elements -->
+            <div class="footer-contact footer-contact-new">
+                <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 25px; text-transform: uppercase;">Contact Info
+                </h4>
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <span style="font-size: 1.5rem;">📧</span>
+                    <a href="mailto:eeepsnaevents@psnacet.edu.in"
+                        style="color: var(--text-pure); text-decoration: none;">Email Us</a>
+                </div>
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <span style="font-size: 1.5rem;">💼</span>
+                    <a href="https://www.linkedin.com/in/psna-eee-dindigul-7158b21a1/"
+                        style="color: var(--text-pure); text-decoration: none;">LinkedIn</a>
+                </div>
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
+                    <span style="font-size: 1.5rem;">📸</span>
+                    <a href="https://www.instagram.com/powergale_eee"
+                        style="color: var(--text-pure); text-decoration: none;">Instagram</a>
+                </div>
+                <!-- Map placeholder -->
+                <div
+                    style="width: 100%; height: 120px; background: url('image/map-placeholder.jpg') center/cover no-repeat; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.1); position: relative; overflow: hidden;">
+                    <a href="https://maps.app.goo.gl/kwFGER1z37ECGfkw8" target="_blank"
+                        style="position: absolute; top: 10px; left: 10px; background: #fff; color: #1e40af; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; text-decoration: none;">Open
+                        in Maps ↗</a>
+                </div>
+            </div>
+
+            <!-- Coordinators Group to keep them side-by-side -->
+            <div class="footer-coordinators-group">
+                <!-- Staff Coordinators -->
+                <div class="footer-staff footer-staff-new">
+                    <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 25px; text-transform: uppercase;">Staff
+                        Coordinators</h4>
+                    <ul
+                        style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 20px; color: var(--text-pure); font-size: 0.95rem;">
+                        <li>Dr. I. Gerald Christopher Raj<br><span
+                                style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">(Professor / EEE)</span></li>
+                        <li>Dr. B. Pushpavanam<br><span style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">(Asst.
+                                Professor / EEE)</span></li>
+                        <li>Dr. G. Praveenraj<br><span style="color: rgba(255,255,255,0.5); font-size: 0.85rem;">(Asst.
+                                Professor / EEE)</span></li>
+                    </ul>
+                </div>
+
+                <!-- Event Coordinators -->
+                <div class="footer-events footer-events-new">
+                    <h4 style="color: #fff; font-size: 1.2rem; margin-bottom: 25px; text-transform: uppercase;">Event
+                        Coordinators</h4>
+                    <ul
+                        style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 15px; font-size: 0.95rem;">
+                        <li style="color: var(--text-pure);">Deepapoorani T (IV Yr)</li>
+                        <li>
+                            <div style="color: var(--text-pure); margin-bottom: 5px;">Arul Jasa A (IV Yr)</div>
+                            <a href="tel:+919042477595"
+                                style="color: #22c55e; text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: bold;"><span>📞</span>+91
+                                90424 77595</a>
+                        </li>
+                        <li style="color: var(--text-pure);">Sheshanth S (III Yr)</li>
+                        <li style="color: var(--text-pure);">Kavyasri B (III Yr)</li>
+                        <li style="color: var(--text-pure);">Lingan V M (III Yr)</li>
+                        <li style="color: var(--text-pure);">Kiruithika M (III Yr)</li>
+                    </ul>
+                </div>
+            </div> <!-- End of Coordinators Group -->
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Power Gale Symposium – Department of EEE, PSNACET. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
