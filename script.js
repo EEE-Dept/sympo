@@ -24,6 +24,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Mobile Menu Toggle ---
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenu && navLinks) {
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('is-active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                mobileMenu.classList.remove('is-active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
     // --- Intersection Observer for Scroll Fade-Ins (Reveal) ---
     const revealElements = document.querySelectorAll('.reveal');
     const revealOptions = {

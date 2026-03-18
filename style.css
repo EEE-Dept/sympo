@@ -247,6 +247,36 @@ h1, h2, h3, h4, .logo-text, .section-badge {
     color: var(--text-pure);
 }
 
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-pure);
+    border-radius: 3px;
+    transition: all var(--transition-fast);
+}
+
+/* Hamburger Animation */
+.menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
 /* Layout Utilities */
 .container {
     max-width: 1280px;
@@ -1222,7 +1252,6 @@ h1, h2, h3, h4, .logo-text, .section-badge {
 }
 
 @media screen and (max-width: 768px) {
-    .nav-links { display: none; }
     .footer-grid { grid-template-columns: 1fr; gap: 40px; }
     .title { font-size: 2.8rem; }
     .event-stats { justify-content: center; }
@@ -1567,18 +1596,45 @@ h1, h2, h3, h4, .logo-text, .section-badge {
 }
 
 @media screen and (max-width: 850px) {
+    .menu-toggle {
+        display: flex;
+    }
     .nav-container {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
     .nav-links {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(6, 9, 19, 0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+        padding: 20px 0;
+        gap: 20px;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+        z-index: 99;
+    }
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
     .nav-links a {
-        font-size: 0.85rem;
+        font-size: 1.1rem;
+        padding: 10px 20px;
+        display: block;
+        width: 100%;
+        text-align: center;
     }
 }
 
